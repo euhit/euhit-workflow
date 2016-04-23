@@ -5,7 +5,7 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query;
 use Maniple\ModUser\Entity\User;
 
-class EuhitWorkflow_Repository_SubmissionRepository extends EntityRepository
+class EuhitWorkflow_Repository_ItemRepository extends EntityRepository
 {
     /**
      * @param EuhitWorkflow_Entity_Workflow $workflow

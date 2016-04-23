@@ -47,23 +47,23 @@ class EuhitWorkflow_Entity_Workflow
     protected $active = true;
 
     /**
+     * Step which all submitted submissions start
+     * @var EuhitWorkflow_Entity_State
+     */
+    protected $initialState;
+
+    /**
      * Number of submissions in this call
-     * @Column(name="submission_count", type="integer", nullable=false, options={"unsigned"=true, "default"=0})
+     * @Column(name="item_count", type="integer", nullable=false, options={"unsigned"=true, "default"=0})
      * @var int
      */
-    protected $submissionCount = 0;
+    protected $itemCount = 0;
 
     /**
-     * @Column(name="submission_limit", type="integer", nullable=false, options={"unsigned"=true, "default"=0})
+     * @Column(name="item_limit", type="integer", nullable=false, options={"unsigned"=true, "default"=0})
      * @var int
      */
-    protected $submissionLimit = 0;
-
-    /**
-     * @Column(type="string")
-     * @var string
-     */
-    protected $status;
+    protected $itemLimit = 0;
 
     /**
      * @Column(type="string", nullable=false, unique=true)
@@ -71,8 +71,9 @@ class EuhitWorkflow_Entity_Workflow
      */
     protected $title;
 
+    protected $states;
 
-    protected $steps;
+    protected $transitions;
 
 
     public function __construct()
@@ -161,56 +162,38 @@ class EuhitWorkflow_Entity_Workflow
     }
 
     /**
-     * @param string $status
+     * @param int $itemCount
      * @return EuhitWorkflow_Entity_Workflow
      */
-    public function setStatus($status)
+    public function setItemCount($itemCount)
     {
-        $this->status = $status;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * @param int $submissionCount
-     * @return EuhitWorkflow_Entity_Workflow
-     */
-    public function setSubmissionCount($submissionCount)
-    {
-        $this->submissionCount = $submissionCount;
+        $this->itemCount = $itemCount;
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getSubmissionCount()
+    public function getItemCount()
     {
-        return $this->submissionCount;
+        return $this->itemCount;
     }
 
     /**
      * @return mixed
      */
-    public function getSubmissionLimit()
+    public function getItemLimit()
     {
-        return $this->submissionLimit;
+        return $this->itemLimit;
     }
 
     /**
-     * @param int $submissionLimit
+     * @param int $itemLimit
      * @return EuhitWorkflow_Entity_Workflow
      */
-    public function setSubmissionLimit($submissionLimit)
+    public function setItemLimit($itemLimit)
     {
-        $this->submissionLimit = $submissionLimit;
+        $this->itemLimit = $itemLimit;
         return $this;
     }
 
@@ -250,21 +233,5 @@ class EuhitWorkflow_Entity_Workflow
         return $this;
     }
 
-    /**
-     * @return bool
-     */
-    public function getAutoAcceptSubmissions()
-    {
-        return $this->autoAcceptSubmissions;
-    }
-
-    /**
-     * @param bool $autoAcceptSubmissions
-     * @return EuhitWorkflow_Entity_Workflow
-     */
-    public function setAutoAcceptSubmissions($autoAcceptSubmissions)
-    {
-        $this->autoAcceptSubmissions = $autoAcceptSubmissions;
-        return $this;
-    }
+    // isRunning() (completedAt IS NULL) AND (submissionCount > 0)
 }
