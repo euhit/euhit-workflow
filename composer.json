@@ -1,0 +1,30 @@
+{
+    "name": "maniple/maniple-workflow",
+    "type": "zefram-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xemlock",
+            "email": "xemlock@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "xemlock/zefram-composer-installer": "*",
+        "xemlock/zefram": "*",
+        "maniple/maniple": "*",
+        "maniple/maniple-core": "*",
+        "doctrine/orm": "^2.4"
+    },
+    "autoload": {
+        "psr-0": {
+            "ManipleWorkflow_": "library/"
+        },
+        "classmap": [
+            "Bootstrap.php"
+        ]
+    }
+}
