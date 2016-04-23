@@ -8,7 +8,7 @@ class ManipleWorkflow_Entity_Workflow
 {
     /**
      * @Id
-     * @Column(name="call_id", type="integer")
+     * @Column(name="workflow_id", type="integer")
      * @GeneratedValue(strategy="AUTO")
      * @var int
      */
@@ -72,7 +72,7 @@ class ManipleWorkflow_Entity_Workflow
     protected $title;
 
 
-    protected $states;
+    protected $steps;
 
 
     public function __construct()
