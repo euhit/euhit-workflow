@@ -5,15 +5,15 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query;
 use Maniple\ModUser\Entity\User;
 
-class ManipleWorkflow_Repository_SubmissionRepository extends EntityRepository
+class EuhitWorkflow_Repository_SubmissionRepository extends EntityRepository
 {
     /**
-     * @param ManipleWorkflow_Entity_Workflow $workflow
+     * @param EuhitWorkflow_Entity_Workflow $workflow
      * @return int
      */
-    public function getNextSubmissionNumber(ManipleWorkflow_Entity_Workflow $workflow)
+    public function getNextSubmissionNumber(EuhitWorkflow_Entity_Workflow $workflow)
     {
-        $dql = 'SELECT MAX(s.submissionNumber) AS maxSubmissionNumber FROM ManipleWorkflow_Entity_Submission s WHERE s.workflow = :workflow';
+        $dql = 'SELECT MAX(s.submissionNumber) AS maxSubmissionNumber FROM EuhitWorkflow_Entity_Submission s WHERE s.workflow = :workflow';
 
         $query = $this->getEntityManager()->createQuery($dql);
         $query->setParameter('workflow', $workflow);
@@ -23,13 +23,13 @@ class ManipleWorkflow_Repository_SubmissionRepository extends EntityRepository
     }
 
     /**
-     * @param ManipleWorkflow_Entity_Workflow|int $workflow
-     * @return ManipleWorkflow_Entity_Submission[]
+     * @param EuhitWorkflow_Entity_Workflow|int $workflow
+     * @return EuhitWorkflow_Entity_Submission[]
      */
     public function getSubmissions($workflow)
     {
-        if (!$workflow instanceof ManipleWorkflow_Entity_Workflow) {
-            $workflow = $this->getEntityManager()->getReference('ManipleWorkflow_Entity_Workflow', (int) $workflow);
+        if (!$workflow instanceof EuhitWorkflow_Entity_Workflow) {
+            $workflow = $this->getEntityManager()->getReference('EuhitWorkflow_Entity_Workflow', (int) $workflow);
         }
 
         $qb = $this->createQueryBuilder('s');
@@ -44,15 +44,15 @@ class ManipleWorkflow_Repository_SubmissionRepository extends EntityRepository
     /**
      * Get submissions that are not drafts
      *
-     * @param ManipleWorkflow_Entity_Workflow|int $workflow
+     * @param EuhitWorkflow_Entity_Workflow|int $workflow
      * @param User|int $user
      * @param array $options
-     * @return ManipleWorkflow_Entity_Submission[]
+     * @return EuhitWorkflow_Entity_Submission[]
      */
     public function getSubmissionsByUser($workflow, $user, array $options = null)
     {
-        if (!$workflow instanceof ManipleWorkflow_Entity_Workflow) {
-            $workflow = $this->getEntityManager()->getReference('ManipleWorkflow_Entity_Workflow', (int) $workflow);
+        if (!$workflow instanceof EuhitWorkflow_Entity_Workflow) {
+            $workflow = $this->getEntityManager()->getReference('EuhitWorkflow_Entity_Workflow', (int) $workflow);
         }
 
         if (!$user instanceof User) {
@@ -82,15 +82,15 @@ class ManipleWorkflow_Repository_SubmissionRepository extends EntityRepository
     /**
      * Get submission drafts
      *
-     * @param ManipleWorkflow_Entity_Workflow|int $workflow
+     * @param EuhitWorkflow_Entity_Workflow|int $workflow
      * @param User|int $user
      * @param array $options
-     * @return ManipleWorkflow_Entity_Submission[]
+     * @return EuhitWorkflow_Entity_Submission[]
      */
     public function getSubmissionDraftsByUser($workflow, $user, array $options = null)
     {
-        if (!$workflow instanceof ManipleWorkflow_Entity_Workflow) {
-            $workflow = $this->getEntityManager()->getReference('ManipleWorkflow_Entity_Workflow', (int) $workflow);
+        if (!$workflow instanceof EuhitWorkflow_Entity_Workflow) {
+            $workflow = $this->getEntityManager()->getReference('EuhitWorkflow_Entity_Workflow', (int) $workflow);
         }
 
         if (!$user instanceof User) {

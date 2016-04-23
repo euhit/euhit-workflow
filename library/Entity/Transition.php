@@ -3,13 +3,13 @@
 /**
  * Workflow step definition.
  *
- * @Entity(repositoryClass="ManipleWorkflow_Repository_StepRepository")
+ * @Entity(repositoryClass="EuhitWorkflow_Repository_StepRepository")
  * @Table(name="workflow_transitions")
  *
  * foreignKey (source_step_id, workflow_id) -> (step_id, workflow_id)
  * foreignKey (target_step_id, workflow_id) -> (step_id, workflow_id)
  */
-class ManipleWorkflow_Entity_Transition
+class EuhitWorkflow_Entity_Transition
 {
     /**
      * @Id
@@ -21,27 +21,27 @@ class ManipleWorkflow_Entity_Transition
 
     /**
      * @Column(name="workflow_id", type="integer", nullable=false)
-     * @var ManipleWorkflow_Entity_Workflow
+     * @var EuhitWorkflow_Entity_Workflow
      */
     protected $workflow;
 
     /**
-     * @ManyToOne(targetEntity="ManipleWorkflow_Entity_Step")
+     * @ManyToOne(targetEntity="EuhitWorkflow_Entity_Step")
      * @JoinColumns({
      *   @JoinColumn(name="source_step_id", referencedColumnName="step_id", nullable=false),
      *   @JoinColumn(name="workflow_id", referencedColumnName="workflow_id")
      * })
-     * @var ManipleWorkflow_Entity_Step
+     * @var EuhitWorkflow_Entity_Step
      */
     protected $sourceStep;
 
     /**
-     * @ManyToOne(targetEntity="ManipleWorkflow_Entity_Step")
+     * @ManyToOne(targetEntity="EuhitWorkflow_Entity_Step")
      * @JoinColumns({
      *   @JoinColumn(name="target_step_id", referencedColumnName="step_id", nullable=false),
      *   @JoinColumn(name="workflow_id", referencedColumnName="workflow_id")
      * })
-     * @var ManipleWorkflow_Entity_Step
+     * @var EuhitWorkflow_Entity_Step
      */
     protected $targetStep;
 

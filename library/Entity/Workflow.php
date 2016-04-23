@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @Entity(repositoryClass="ManipleWorkflow_Repository_WorkflowRepository")
+ * @Entity(repositoryClass="EuhitWorkflow_Repository_WorkflowRepository")
  * @Table(name="workflows")
  */
-class ManipleWorkflow_Entity_Workflow
+class EuhitWorkflow_Entity_Workflow
 {
     /**
      * @Id
@@ -90,7 +90,7 @@ class ManipleWorkflow_Entity_Workflow
 
     /**
      * @param \DateTime $closeTime
-     * @return ManipleWorkflow_Entity_Workflow
+     * @return EuhitWorkflow_Entity_Workflow
      */
     public function setCloseTime(\DateTime $closeTime = null)
     {
@@ -108,7 +108,7 @@ class ManipleWorkflow_Entity_Workflow
 
     /**
      * @param \DateTime $completedAt
-     * @return ManipleWorkflow_Entity_Workflow
+     * @return EuhitWorkflow_Entity_Workflow
      */
     public function setCompletedAt(\DateTime $completedAt = null)
     {
@@ -126,7 +126,7 @@ class ManipleWorkflow_Entity_Workflow
 
     /**
      * @param \DateTime $createdAt
-     * @return ManipleWorkflow_Entity_Workflow
+     * @return EuhitWorkflow_Entity_Workflow
      */
     public function setCreatedAt(\DateTime $createdAt = null)
     {
@@ -144,7 +144,7 @@ class ManipleWorkflow_Entity_Workflow
 
     /**
      * @param \DateTime $openTime
-     * @return ManipleWorkflow_Entity_Workflow
+     * @return EuhitWorkflow_Entity_Workflow
      */
     public function setOpenTime(\DateTime $openTime = null)
     {
@@ -162,7 +162,7 @@ class ManipleWorkflow_Entity_Workflow
 
     /**
      * @param string $status
-     * @return ManipleWorkflow_Entity_Workflow
+     * @return EuhitWorkflow_Entity_Workflow
      */
     public function setStatus($status)
     {
@@ -180,7 +180,7 @@ class ManipleWorkflow_Entity_Workflow
 
     /**
      * @param int $submissionCount
-     * @return ManipleWorkflow_Entity_Workflow
+     * @return EuhitWorkflow_Entity_Workflow
      */
     public function setSubmissionCount($submissionCount)
     {
@@ -206,7 +206,7 @@ class ManipleWorkflow_Entity_Workflow
 
     /**
      * @param int $submissionLimit
-     * @return ManipleWorkflow_Entity_Workflow
+     * @return EuhitWorkflow_Entity_Workflow
      */
     public function setSubmissionLimit($submissionLimit)
     {
@@ -216,7 +216,7 @@ class ManipleWorkflow_Entity_Workflow
 
     /**
      * @param string $title
-     * @return ManipleWorkflow_Entity_Workflow
+     * @return EuhitWorkflow_Entity_Workflow
      */
     public function setTitle($title)
     {
@@ -242,7 +242,7 @@ class ManipleWorkflow_Entity_Workflow
 
     /**
      * @param mixed $active
-     * @return ManipleWorkflow_Entity_Workflow
+     * @return EuhitWorkflow_Entity_Workflow
      */
     public function setActive($active)
     {
@@ -260,7 +260,7 @@ class ManipleWorkflow_Entity_Workflow
 
     /**
      * @param bool $autoAcceptSubmissions
-     * @return ManipleWorkflow_Entity_Workflow
+     * @return EuhitWorkflow_Entity_Workflow
      */
     public function setAutoAcceptSubmissions($autoAcceptSubmissions)
     {

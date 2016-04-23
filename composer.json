@@ -1,5 +1,5 @@
 {
-    "name": "maniple/maniple-workflow",
+    "name": "euhit/euhit-workflow",
     "type": "zefram-module",
     "license": "MIT",
     "authors": [
@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-0": {
-            "ManipleWorkflow_": "library/"
+            "EuhitWorkflow_": "library/"
         },
         "classmap": [
             "Bootstrap.php"
