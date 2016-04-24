@@ -1,5 +1,7 @@
 <?php
 
+use \Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @Entity(repositoryClass="EuhitWorkflow_Repository_WorkflowRepository")
  * @Table(name="workflows")
@@ -71,14 +73,22 @@ class EuhitWorkflow_Entity_Workflow
      */
     protected $title;
 
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
     protected $states;
 
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
     protected $transitions;
 
 
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->states = new ArrayCollection();
+        $this->transitions = new ArrayCollection();
     }
 
     /**

@@ -9,7 +9,8 @@ use \Doctrine\Common\Collections\ArrayCollection;
  * @Table(
  *     name="workflow_states",
  *     uniqueConstraints={
- *         @UniqueConstraint(columns={"workflow_id", "activity_name"}),
+ *         @UniqueConstraint(columns={"state_id", "workflow_id"}),
+ *         @UniqueConstraint(columns={"workflow_id", "label"})
  *     }
  * )
  */
@@ -31,7 +32,9 @@ class EuhitWorkflow_Entity_State
     protected $workflow;
 
     /**
-     * Internal read-only column to allow compound (step, workshop) foreign keys in transitions
+     * Internal column to allow composite foreign key (state_id, workflow_id)
+     * from EuhitWorkflow_Entity_Transition and EuhitWorkflow_Entity_Step entities,
+     * without workflow_id column being part of the primary key.
      *
      * @Column(name="workflow_id", type="integer")
      * @internal
@@ -39,11 +42,10 @@ class EuhitWorkflow_Entity_State
     protected $__workflowId;
 
     /**
-     * Activity name to be used in activity entity. If not provided a start status will be used.
-     * @Column(name="activity_name", type="string", length=255, nullable=true)
+     * @Column(name="label", type="string", length=255)
      * @var string
      */
-    protected $activityName;
+    protected $label;
 
     /**
      * @Column(name="handler", type="json_array")
@@ -56,12 +58,6 @@ class EuhitWorkflow_Entity_State
      * @var array
      */
     protected $displayOptions;
-
-    /**
-     * @Column(name="label", type="string", length=255)
-     * @var string
-     */
-    protected $status;
 
     /**
      * Outgoing transitions
