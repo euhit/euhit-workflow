@@ -32,16 +32,6 @@ class EuhitWorkflow_Entity_State
     protected $workflow;
 
     /**
-     * Internal column to allow composite foreign key (state_id, workflow_id)
-     * from EuhitWorkflow_Entity_Transition and EuhitWorkflow_Entity_Step entities,
-     * without workflow_id column being part of the primary key.
-     *
-     * @Column(name="workflow_id", type="integer")
-     * @internal
-     */
-    protected $__workflowId;
-
-    /**
      * @Column(name="label", type="string", length=255)
      * @var string
      */
@@ -51,13 +41,13 @@ class EuhitWorkflow_Entity_State
      * @Column(name="handler", type="json_array")
      * @var array
      */
-    protected $handler;
+    protected $handler = array();
 
     /**
      * @Column(name="display_options", type="json_array")
      * @var array
      */
-    protected $displayOptions;
+    protected $displayOptions = array();
 
     /**
      * Outgoing transitions
@@ -99,7 +89,7 @@ class EuhitWorkflow_Entity_State
      * @param EuhitWorkflow_Entity_Workflow $workflow
      * @return EuhitWorkflow_Entity_State
      */
-    public function setWorkflow(EuhitWorkflow_Entity_Workflow $workflow = null)
+    public function setWorkflow(EuhitWorkflow_Entity_Workflow $workflow)
     {
         $this->workflow = $workflow;
         return $this;
@@ -139,6 +129,24 @@ class EuhitWorkflow_Entity_State
     public function setDisplayOption($option, $value)
     {
         $this->displayOptions[$option] = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * @param string $label
+     * @return EuhitWorkflow_Entity_State
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
         return $this;
     }
 

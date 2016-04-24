@@ -21,7 +21,7 @@ class EuhitWorkflow_Entity_Transition
 
     /**
      * @ManyToOne(targetEntity="EuhitWorkflow_Entity_Workflow")
-     * @JoinColumn(name="workflow_id", referencedColumnName="workflow_id")
+     * @JoinColumn(name="workflow_id", referencedColumnName="workflow_id", nullable=false)
      * @var EuhitWorkflow_Entity_Workflow
      */
     protected $workflow;
@@ -29,8 +29,7 @@ class EuhitWorkflow_Entity_Transition
     /**
      * @ManyToOne(targetEntity="EuhitWorkflow_Entity_State")
      * @JoinColumns({
-     *   @JoinColumn(name="source_state_id", referencedColumnName="state_id", nullable=false),
-     *   @JoinColumn(name="workflow_id", referencedColumnName="workflow_id")
+     *     @JoinColumn(name="source_state_id", referencedColumnName="state_id", nullable=false)
      * })
      * @var EuhitWorkflow_Entity_State
      */
@@ -39,8 +38,7 @@ class EuhitWorkflow_Entity_Transition
     /**
      * @ManyToOne(targetEntity="EuhitWorkflow_Entity_State")
      * @JoinColumns({
-     *   @JoinColumn(name="target_state_id", referencedColumnName="state_id", nullable=false),
-     *   @JoinColumn(name="workflow_id", referencedColumnName="workflow_id")
+     *     @JoinColumn(name="target_state_id", referencedColumnName="state_id", nullable=false)
      * })
      * @var EuhitWorkflow_Entity_State
      */

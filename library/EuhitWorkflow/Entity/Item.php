@@ -26,20 +26,9 @@ class EuhitWorkflow_Entity_Item
     protected $workflow;
 
     /**
-     * Read-only column to allow composite foreign key (item_id, workshop_id)
-     * from EuhitWorkflow_Entity_Step entity, without workflow_id column being
-     * part of the primary key.
-     *
-     * @Column(name="workflow_id", type="integer")
-     * @internal
-     */
-    protected $__workflowId;
-
-    /**
      * @ManyToOne(targetEntity="EuhitWorkflow_Entity_Step")
      * @JoinColumns({
-     *     @JoinColumn(name="current_step_id", referencedColumnName="step_id", nullable=true),
-     *     @JoinColumn(name="workflow_id", referencedColumnName="workflow_id")
+     *     @JoinColumn(name="current_step_id", referencedColumnName="step_id", nullable=true)
      * })
      * @var EuhitWorkflow_Entity_Step
      */

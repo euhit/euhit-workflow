@@ -17,7 +17,7 @@ class EuhitWorkflow_Entity_Workflow
     protected $id;
 
     /**
-     * @Column(name="open_time", type="epoch")
+     * @Column(name="open_time", type="epoch", nullable=true)
      * @var \DateTime
      */
     protected $openTime;
@@ -242,6 +242,25 @@ class EuhitWorkflow_Entity_Workflow
         $this->active = $active;
         return $this;
     }
+
+    /**
+     * @return EuhitWorkflow_Entity_State
+     */
+    public function getInitialState()
+    {
+        return $this->initialState;
+    }
+
+    /**
+     * @param EuhitWorkflow_Entity_State $initialState
+     * @return EuhitWorkflow_Entity_Workflow
+     */
+    public function setInitialState(EuhitWorkflow_Entity_State $initialState = null)
+    {
+        $this->initialState = $initialState;
+        return $this;
+    }
+
 
     // isRunning() (completedAt IS NULL) AND (submissionCount > 0)
 }
