@@ -98,4 +98,122 @@ class EuhitWorkflow_Entity_Step
         $this->startedAt = new DateTime();
         $this->documents = new ArrayCollection();
     }
+
+    /**
+     * @return EuhitWorkflow_Entity_Item
+     */
+    public function getItem()
+    {
+        return $this->item;
+    }
+
+    /**
+     * @param EuhitWorkflow_Entity_Item $item
+     * @return EuhitWorkflow_Entity_Step
+     */
+    public function setItem(EuhitWorkflow_Entity_Item $item)
+    {
+        $this->item = $item;
+        return $this;
+    }
+
+    /**
+     * @return EuhitWorkflow_Entity_Workflow
+     */
+    public function getWorkflow()
+    {
+        return $this->workflow;
+    }
+
+    /**
+     * @param EuhitWorkflow_Entity_Workflow $workflow
+     * @return EuhitWorkflow_Entity_Step
+     */
+    public function setWorkflow(EuhitWorkflow_Entity_Workflow $workflow)
+    {
+        $this->workflow = $workflow;
+        return $this;
+    }
+
+    /**
+     * @return EuhitWorkflow_Entity_State
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param EuhitWorkflow_Entity_State $state
+     * @return EuhitWorkflow_Entity_Step
+     */
+    public function setState(EuhitWorkflow_Entity_State $state)
+    {
+        $this->state = $state;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return EuhitWorkflow_Entity_Step
+     */
+    public function getNextStep()
+    {
+        return $this->nextStep;
+    }
+
+    /**
+     * @param EuhitWorkflow_Entity_Step $nextStep
+     * @return EuhitWorkflow_Entity_Step
+     */
+    public function setNextStep($nextStep)
+    {
+        $this->nextStep = $nextStep;
+        return $this;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getStartedAt()
+    {
+        return $this->startedAt;
+    }
+
+    /**
+     * @param DateTime $startedAt
+     * @return EuhitWorkflow_Entity_Step
+     */
+    public function setStartedAt($startedAt)
+    {
+        $this->startedAt = $startedAt;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @param array $data
+     * @return EuhitWorkflow_Entity_Step
+     */
+    public function setData($data)
+    {
+        $this->data = $data;
+        return $this;
+    }
+
+
 }

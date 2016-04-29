@@ -157,4 +157,42 @@ class EuhitWorkflow_Entity_State
     {
         return 0 === count($this->getTransitions());
     }
+
+    /**
+     * @return array
+     */
+    public function getHandler()
+    {
+        return $this->handler;
+    }
+
+    /**
+     * @param array $handler
+     * @return EuhitWorkflow_Entity_State
+     */
+    public function setHandler(array $handler)
+    {
+        $this->handler = $handler;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getDisplayOptions()
+    {
+        return $this->displayOptions;
+    }
+
+    /**
+     * @param array $displayOptions
+     * @return EuhitWorkflow_Entity_State
+     */
+    public function setDisplayOptions($displayOptions)
+    {
+        $this->displayOptions = $displayOptions;
+        return $this;
+    }
+
+
 }

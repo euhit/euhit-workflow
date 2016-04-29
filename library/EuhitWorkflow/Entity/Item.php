@@ -91,6 +91,67 @@ class EuhitWorkflow_Entity_Item
      */
     protected $data = array();
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return EuhitWorkflow_Entity_Workflow
+     */
+    public function getWorkflow()
+    {
+        return $this->workflow;
+    }
+
+    /**
+     * @param EuhitWorkflow_Entity_Workflow $workflow
+     * @return EuhitWorkflow_Entity_Item
+     */
+    public function setWorkflow(EuhitWorkflow_Entity_Workflow $workflow)
+    {
+        $this->workflow = $workflow;
+        return $this;
+    }
+
+    /**
+     * @return EuhitWorkflow_Entity_Step
+     */
+    public function getCurrentStep()
+    {
+        return $this->currentStep;
+    }
+
+    /**
+     * @param EuhitWorkflow_Entity_Step $currentStep
+     * @return EuhitWorkflow_Entity_Item
+     */
+    public function setCurrentStep(EuhitWorkflow_Entity_Step $currentStep)
+    {
+        $this->currentStep = $currentStep;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSubmissionNumber()
+    {
+        return $this->submissionNumber;
+    }
+
+    /**
+     * @param int $submissionNumber
+     * @return EuhitWorkflow_Entity_Item
+     */
+    public function setSubmissionNumber($submissionNumber)
+    {
+        $this->submissionNumber = $submissionNumber;
+        return $this;
+    }
 
     /**
      * @return string
